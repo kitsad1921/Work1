@@ -1,0 +1,27 @@
+
+ <div class="bar bar-header">
+  <h1 class="title">MEMBER</h1>
+</div>
+
+<br>
+<form ng-submit="dologin()">
+  <div class="list bar-subheader">
+  <label class="item item-input">
+   <span class="input-label">Username</span>
+    <input type="text">
+  </label>
+  <label class="item item-input">
+    <span class="input-label">Password</span>
+    <input type="password">
+ 
+  </label>
+  <br>
+  <br>
+<center><a ui-sref="history"><button class="button button=-clear button-positive">>> LOHIN << </center>
+</div>
+
+
+
+
+  <div class="title">Footer</div>
+</div>
