@@ -1,27 +1,17 @@
 
- <div class="bar bar-header">
-  <h1 class="title">MEMBER</h1>
-</div>
-
-<br>
-<form ng-submit="dologin()">
-  <div class="list bar-subheader">
+<form ng-submit="doLogin()">
+<div class="list has-subheader">
   <label class="item item-input">
-   <span class="input-label">Username</span>
-    <input type="text">
+    <span class="input-label">Username</span>
+    <input type="text" ng-model="login.username">
   </label>
   <label class="item item-input">
     <span class="input-label">Password</span>
-    <input type="password">
- 
+    <input type="password" ng-model="login.password">
   </label>
-  <br>
-  <br>
-<center><a ui-sref="history"><button class="button button=-clear button-positive">>> LOHIN << </center>
+  <button class="button button-block button button-positive">
+ Login
+</button>
 </div>
-
-
-
-
-  <div class="title">Footer</div>
-</div>
+</form>
+ 

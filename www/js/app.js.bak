@@ -12,7 +12,8 @@ angular.module('starter', ['ionic'])
       // for form inputs)
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
 
-      // Don't remove this line unless you know what you are doing. It stops the viewport
+      //
+	//  Don't remove this line unless you know what you are doing. It stops the viewport
       // from snapping when text inputs are focused. Ionic handles this internally for
       // a much nicer keyboard experience.
       cordova.plugins.Keyboard.disableScroll(true);
@@ -27,32 +28,63 @@ angular.module('starter', ['ionic'])
 		.state('index',{
 		url: '/index',
 		templateUrl:'templates/menu.html',
-		//controller:'addCtrl'
+		controller:'AppCtrl'
 	})
 
 		.state('Setting',{
 		url: '/Setting',
 		templateUrl:'templates/Setting.html',
-		//controller:'addCtrl'
-	})
-		.state('login',{
-		url: '/login',
-		templateUrl:'templates/login.html',
-		//controller:'addCtrl'
+		controller:'AppCtrl'
+	
 	})
 		.state('history',{
 		url: '/history',
 		templateUrl:'templates/history.html',
-		//controller:'addCtrl'
+		controller:'AppCtrl'
 	
 	})
 		.state('list',{
 		url: '/list',
 		templateUrl:'templates/list.html',
-		//controller:'addCtrl'
-	
+		controller:'AppCtrl'
 	
 	
 	})
+		.state('login',{
+		url: '/login',
+		templateUrl:'templates/login.html',
+		controller:'AppCtrl'
+	})
 	$urlRouterProvider.otherwise('/login');
-});
+})
+
+.controller('AppCtrl',function ($scope,$state,$ionicPopup){
+
+	$scope.login={};
+	var user="admin";
+	var password="123456";
+	$scope.doLogin=function(){
+		console.log("alert");
+		console.log(password);
+		console.log($scope.login.username);
+		console.log($scope.login.password);
+		if ($scope.login.username == 'admin' && $scope.login.password == '123456') {
+		console.log('success');
+		$ionicPopup.alert({
+		 title: 'Login Success!',
+		 template: 'Welcome admin'
+	   });
+		$state.go('history')
+
+    }else{
+		console.log('invalid');
+		$ionicPopup.alert({
+		 title: 'Login Fail!',
+		 template: 'Invalid Username and Password '
+	   });
+		$state.go('login')
+    }
+	};
+ 
+	
+})
